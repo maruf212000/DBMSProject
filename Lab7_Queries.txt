@@ -1,0 +1,2 @@
+<!-- Add queries for lab 7 here 
+    Make sure it gets proper results -->
