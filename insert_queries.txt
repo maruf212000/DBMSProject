@@ -1,0 +1,4 @@
+//Maruf-13/10/2020
+insert into person_email values (9,'asad44135@gmail.com');
+insert into person_contact VALUES(9,9845126578);
+insert into person_contact VALUES(9,9845132157);
