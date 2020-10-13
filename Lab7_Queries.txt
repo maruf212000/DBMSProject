@@ -1,2 +1,4 @@
 <!-- Add queries for lab 7 here 
     Make sure it gets proper results -->
+1. Display total sales made by Mr.Sharon Schmidt.
+    Select person.name,count(property_id) AS total_sales from property JOIN (Select user_id,name from person) AS person ON person.user_id = property.agent_id GROUP BY person.name HAVING person.name = 'Sharon Schmidt';
