@@ -5,3 +5,13 @@ insert into person_contact VALUES(9,9845132157);
 insert into booking values(3,'Success','09/09/2020',2,5,3)
 insert into booking values(4,'Success','09/09/2020',6,35,11)
 
+//Maruf-14/10/2020
+INSERT INTO property VALUES(7,'Chandra Heights',5000000,'Standard','Residential','Furnished',2000,'Smart Home','A/1 Chandra Heights up street','Paldi',380015,11,41,1);
+
+INSERT INTO property VALUES(8,'Rivera Heights',4000000,'Standard','Residential','Unfurnished',2000,'Nice View','B/11 Rivera Heights down street','Paldi',380015,22,41,1);
+
+INSERT INTO property VALUES(9,'Unimont Tower',7000000,'Standard','Residential','Furnished',3200,'Smart Home','326 Unimont Tower happy street','Ambawadi',380015,62,41,1);
+
+INSERT INTO property VALUES(10,'Chandra Heights',10000000,'Premium','Residential','Furnished',4000,'Best Security','15 Sunrise Bunglows','Vasna',380012,20,29,4);
+
+INSERT INTO Booking VALUES(2,'Pending','2018-11-02',9,35,3);
