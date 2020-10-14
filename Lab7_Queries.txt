@@ -1,18 +1,16 @@
 <!-- Add queries for lab 7 here 
     Make sure it gets proper results -->
-1. Display total sales made by Mr.Sharon Schmidt.
-    Select person.name,count(property_id) AS total_sales from property JOIN (Select user_id,name from person) AS person ON person.user_id = property.agent_id GROUP BY person.name HAVING person.name = 'Sharon Schmidt';
-2. Display the total sales & commission of each agent 
+1. Display the total sales & commission of each agent 
 select pe.name,count(*) as Total_Sales,SUM((p.price * 2)/100) AS Total_commission from property as p join person as pe on p.agent_id=pe.user_id where p.property_id in 
 (select b.property_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
  b.booking_status='Success' and py.transaction_status='Success') group by pe.name;
 
-3. Display the list of properties that are available for sale
+2. Display the list of properties that are available for sale
 select p.property_name from property as p where p.property_id in 
 (select b.booking_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
  b.booking_status='Pending' and py.transaction_status='Pending') 
 
-4. Display the list of proeprties that are sold
+3. Display the list of proeprties that are sold
 select p.property_name from property as p where p.property_id in 
 (select b.booking_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
  b.booking_status='Success' and py.transaction_status='Success') 
