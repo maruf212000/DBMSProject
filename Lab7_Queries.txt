@@ -14,3 +14,11 @@ select p.property_name from property as p where p.property_id in
 select p.property_name from property as p where p.property_id in 
 (select b.booking_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
  b.booking_status='Success' and py.transaction_status='Success') 
+
+4.  Display email of buyer whose booking is still pending.
+ Select pr.property_name,p.name,pe.email,pr.price from booking AS b JOIN
+ (Select property_id,property_name,price from property) AS pr ON pr.property_id=b.property_id JOIN
+ (Select name,user_id from person) AS p ON p.user_id = b.buyer_id JOIN
+ (Select * from person_email) AS pe ON pe.user_id=b.buyer_id 
+ WHERE booking_status = 'Pending';
+ 
