@@ -2,3 +2,6 @@
 insert into person_email values (9,'asad44135@gmail.com');
 insert into person_contact VALUES(9,9845126578);
 insert into person_contact VALUES(9,9845132157);
+insert into booking values(3,'Success','09/09/2020',2,5,3)
+insert into booking values(4,'Success','09/09/2020',6,35,11)
+
