@@ -1,0 +1,16 @@
+
+//Prathyusha 15/10/2020
+2. Display the list of properties that are available for sale 
+r1=(𝜋(booking_id)(σ(booking_status=’Success’)(booking)))
+result=𝜋(property_name)(σ(property_id not in r1)(property))
+
+3. Display the list of properties that are sold
+r1=(𝜋(booking_id)(σ(booking_status=’Success’)(booking)))
+result=𝜋(property_name)(σ(property_id in r1)(property))
+
+5. Find out the star performer of the year among all agents
+r1=𝜋(property_id)(σ(booking_status=’Success’ and transaction_status='Success')(booking ⨝<booking.transaction_id=payment.transaction_id>(payment)))
+r2=𝜋(name,cnt)((name)ℱ(count(*)->cnt)(σ(property_id in r1)(property ⨝<property.agent_id=person.user_id>(person))))
+r3=𝜋(property_id)(σ(booking_status=’Success’ and transaction_status='Success' and booking_date>’01/01/2020’ and booking_date<’12/31/2020’)(booking ⨝<booking.transaction_id=payment.transaction_id>(payment)))
+r4=𝜋(maxsales)(ℱ(max(Total_Sales)->maxsales)(𝜋(name,cnt)((name)ℱ(count(*)->cnt)(σ(property_id in r3)(property ⨝<property.agent_id=person.user_id>(person))))
+r5=σ(r2.Total_Sales in r4)((r2.name,r2.Total_Sales)ℱ(person ⨝<person.name=r2.name>(r2)))
