@@ -15,3 +15,9 @@ INSERT INTO property VALUES(9,'Unimont Tower',7000000,'Standard','Residential','
 INSERT INTO property VALUES(10,'Chandra Heights',10000000,'Premium','Residential','Furnished',4000,'Best Security','15 Sunrise Bunglows','Vasna',380012,20,29,4);
 
 INSERT INTO Booking VALUES(2,'Pending','2018-11-02',9,35,3);
+
+//Maruf-15/10/2020
+
+INSERT INTO booking VALUES(3,'Success','2015-10-11',6,59,7);
+ 
+INSERT INTO booking VALUES(4,'Success','2013-08-01',8,51,6);
