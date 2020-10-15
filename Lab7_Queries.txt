@@ -6,14 +6,16 @@ select pe.name,count(*) as Total_Sales,SUM((p.price * 2)/100) AS Total_commissio
  b.booking_status='Success' and py.transaction_status='Success') group by pe.name;
 
 2. Display the list of properties that are available for sale
-select p.property_name from property as p where p.property_id in 
-(select b.booking_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
- b.booking_status='Pending' and py.transaction_status='Pending') 
+select p.property_name from property as p where p.property_id not in 
+(select b.booking_id from booking as b where 
+ b.booking_status='Success')
+
 
 3. Display the list of proeprties that are sold
 select p.property_name from property as p where p.property_id in 
-(select b.booking_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
- b.booking_status='Success' and py.transaction_status='Success') 
+(select b.booking_id from booking as b where 
+ b.booking_status='Success')
+ 
 
 4.  Display email of buyer whose booking is still pending.
  Select pr.property_name,p.name,pe.email,pr.price from booking AS b JOIN
