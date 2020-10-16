@@ -5,12 +5,13 @@ select pe.name,count(*) as Total_Sales,SUM((p.price * 2)/100) AS Total_commissio
 (select b.property_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
  b.booking_status='Success' and py.transaction_status='Success') group by pe.name;
 
+//Prathyusha
 2. Display the list of properties that are available for sale
 select p.property_name from property as p where p.property_id not in 
 (select b.booking_id from booking as b where 
  b.booking_status='Success')
 
-
+//Prathyusha
 3. Display the list of proeprties that are sold
 select p.property_name from property as p where p.property_id in 
 (select b.booking_id from booking as b where 
@@ -23,16 +24,18 @@ select p.property_name from property as p where p.property_id in
  (Select name,user_id from person) AS p ON p.user_id = b.buyer_id JOIN
  (Select * from person_email) AS pe ON pe.user_id=b.buyer_id 
  WHERE booking_status = 'Pending';
- 
+
+//Prathyusha
 5. Find out the star performer of the year among all agents
- select sales.name,sales.Total_Sales from person as ps join (select pe.name,count(*) as Total_Sales 
+select sales.name,sales.Total_Sales from person as ps join (select pe.name,count(*) as Total_Sales 
 from property as p join person as pe on p.agent_id=pe.user_id where p.property_id in 
 (select b.property_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
- b.booking_status='Success' and py.transaction_status='Success') group by pe.name) as sales on ps.name=sales.name
+b.booking_status='Success' and py.transaction_status='Success') group by pe.name) as sales on ps.name=sales.name
 group by sales.name,sales.Total_Sales having sales.Total_Sales=(select max(Total_Sales) from
 (select pe.name as tname,count(*) as Total_Sales 
 from property as p join person as pe on p.agent_id=pe.user_id where p.property_id in 
 (select b.property_id from booking as b join payment as py on b.transaction_id=py.transaction_id where 
- b.booking_status='Success' and py.transaction_status='Success' and b.booking_date between '01/01/2020' and '12/31/2020') group by pe.name) as maxsales)
+b.booking_status='Success' and py.transaction_status='Success' and b.booking_date between '01/01/2020' and '12/31/2020') group by pe.name) as maxsales)
+
 
  
